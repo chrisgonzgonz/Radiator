@@ -36,6 +36,8 @@
         NSLog(@"Radius: %f", percent);
 
         CGFloat strokeWidth = baseStrokeWidth*percent;
+        strokeWidth = MIN(strokeWidth, radius*2);
+        
         CGContextRef ctx = UIGraphicsGetCurrentContext();
         CGContextSetLineWidth(ctx, strokeWidth);
         CGContextAddEllipseInRect(ctx, CGRectMake(size/2.0-radius, size/2.0-radius, 2.0*radius, 2.0*radius));
